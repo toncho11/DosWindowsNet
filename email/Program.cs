@@ -29,6 +29,8 @@ namespace email
         static DosWindowTextBox tbServer;
         static DosWindowTextBox tbPort;
 
+        static System.Net.Mail.MailMessage[] messages;
+
         public static void Initialize()
         {
             Dekstop.Draw();
@@ -49,6 +51,7 @@ namespace email
             tbPort.Draw();
 
             winEmailList = new DosWindowList(3, 9, 70, 10, "Message list");
+            winEmailList.RowIndexChanged += WinEmailList_RowIndexChanged;
             winEmailList.Draw();
 
             winEmailBody = new DosWindow(3, 21, 70, 10, "Message body");
@@ -56,6 +59,13 @@ namespace email
 
             CreateTopMenu();
             Window.GiveFocusToNextWindow();
+        }
+
+        private static void WinEmailList_RowIndexChanged(object sender, int index)
+        {
+            winEmailBody.Draw(); //clear
+            string body = messages[index].Body;
+            winEmailBody.Text = body.Substring(0,60);
         }
 
         public static void StartLoop()
@@ -109,10 +119,12 @@ namespace email
 
             ConsoleColor oldBgColor = Console.BackgroundColor;
             Console.BackgroundColor = ConsoleColor.Black;
-            //Console.CursorVisible = false;
-            //Console.OutputEncoding = System.Text.Encoding.Unicode;
 
             Initialize();
+
+            //string[] strs = { "aaa", "bbb", "ccc", "dd", "eee" };
+
+            //winEmailList.LoadList(strs.ToList());
 
             if (htConnection!=null)
             {
@@ -152,9 +164,18 @@ namespace email
 
             List<string> list = GetMails(winPB); //updates the winPB progress bar
 
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            if (list.Count > 0)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
 
-            winEmailList.LoadList(list);
+                winEmailList.LoadList(list);
+
+                do //go to Message List
+                {
+                    Window.GiveFocusToNextWindow();
+                }
+                while (!(Window.GetCurrentWindow() is DosWindowList));
+            }
 
             System.Threading.Thread.Sleep(150);
             winPB.Hide();
@@ -177,12 +198,13 @@ namespace email
                     tbEmailAddress.Text, 
                     tbPassword.Text,
                     AuthMethod.Login, Convert.ToInt32(tbPort.Text) == 993);
+
                 if (winPB != null) winPB.SetProgress(20);
 
                 IEnumerable<uint> uids = Client.Search(SearchCondition.Unseen());
                 if (winPB != null) winPB.SetProgress(40);
 
-                IEnumerable<System.Net.Mail.MailMessage> messages = Client.GetMessages(uids, false);
+                messages = (Client.GetMessages(uids, false)).ToArray();
                 if (winPB != null) winPB.SetProgress(62);
 
                 list = (from message in messages
@@ -217,6 +239,8 @@ namespace email
             Console.Write("F2 - Check e-mail");
             Console.SetCursorPosition(29, 0);
             Console.Write("F3 - About");
+            Console.SetCursorPosition(40, 0);
+            Console.Write("Tab - switch controls");
         }
 
         private static Hashtable getSettings(string path)

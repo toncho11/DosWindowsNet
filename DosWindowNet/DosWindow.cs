@@ -17,7 +17,8 @@ namespace DosWindowNet
         protected bool showBorder;
         protected ConsoleColor bgColor;
         public bool SkipTabOrder;
-        protected bool showCursor; 
+        protected bool showCursor;
+        protected StringBuilder text;
 
         public DosWindow(int posx, int posy, int width, int height, string title)
         {
@@ -147,6 +148,21 @@ namespace DosWindowNet
             else Console.SetCursorPosition(posx, posy+1);
 
             Console.CursorVisible = showCursor;
+        }
+
+        public virtual string Text
+        {
+            get
+            {
+                return text.ToString();
+            }
+            set
+            {
+                Console.BackgroundColor = bgColor;
+                Console.SetCursorPosition(posx + 1, posy + 1);
+                Console.Write(value);
+                text = new StringBuilder(value);
+            }
         }
     }
 }

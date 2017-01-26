@@ -9,15 +9,11 @@ namespace DosWindowNet
     public class DosWindowTextBox : DosWindow
     {
         int currentOffsetLeft;
-        StringBuilder text;
 
         public DosWindowTextBox(int posx, int posy, int width, int height, ConsoleColor bgColor)
             : base(posx, posy, width, height, "")
         {
             base.showBorder = false;
-
-            //Register
-            //Window.List.Add(this);
 
             base.bgColor = bgColor;
 
@@ -96,7 +92,7 @@ namespace DosWindowNet
             return processed;
         }
 
-        public string Text
+        public override string Text
         {
             get
             {
