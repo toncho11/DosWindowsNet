@@ -198,6 +198,7 @@ namespace email
                 if (posIC != -1)
                     message = message.Substring(posIC);
 
+                message = message.Substring(0, Math.Min(message.Length, Console.WindowWidth - 11)) + "...";
                 DosWindowMessage winError = new DosWindowMessage(message, "Error");
                 winError.Draw();
             }
