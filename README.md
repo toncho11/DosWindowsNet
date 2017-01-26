@@ -1,5 +1,9 @@
 # DosWindowsNet
-ASCII DOS windows for Microsoft .Net/C#. Windows are visualized character by character using ASCII symbols. The project works on Windows and Mac/Linux (with Mono).
+ASCII DOS windows for Microsoft .Net/C#. 
+
+![Alt text](/screenshots/email1.png?raw=true "email.exe can check e-mail from gmail")
+
+Windows are visualized character by character using ASCII symbols. The project works on Windows and Mac/Linux (with Mono).
 
 Library usage:
 
@@ -26,5 +30,6 @@ The library provides controls that all inherit from the DosWindow class. So they
 Things to add:
   * more Windows/Controls
   * implement Windows overlay (several windows on top of each other), currently there is a simplified implementation
+  * add shadow to DosWindow
 
 
