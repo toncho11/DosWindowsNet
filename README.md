@@ -1,8 +1,6 @@
 # DosWindowsNet
 ASCII DOS windows for Microsoft .Net/C#. Windows are visualized character by character using ASCII symbols. The project works on Windows and Mac/Linux (with Mono).
 
-An example app email.exe is provided. It allows you to check your gmail from the Windows or Linux console.
-
 Library usage:
 
   * systems with limited resources such as Raspberry Pi, virtual machines
@@ -10,7 +8,13 @@ Library usage:
   * you want 100% identical UI across different OS
   * you get the most responsive UI and you prefer keyboard input
   * reduce hackers's attack surface by completely eliminating the graphical subsystem
-  
+
+Programs:
+  * provided: email.exe - allows you to check your gmail from the Windows or Linux console
+  * future: console pdf reader from that uses C# to convert the PDF to text
+  * future: chat client for What's up (C# API exists)
+  * future: re-write of entire Midnight Commander in .NET
+
 The library provides controls that all inherit from the DosWindow class. So they are also called "windows". The following are provided:
   * standard window
   * textbox window
@@ -18,4 +22,5 @@ The library provides controls that all inherit from the DosWindow class. So they
   * progress bar window 
   * login window
   * list window (in progress)
-  
+
+
