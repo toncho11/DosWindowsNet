@@ -1,5 +1,9 @@
 # DosWindowsNet
-ASCII DOS windows for Microsoft .Net/C#. Windows are visualized character by character using ASCII symbols. The project works on Windows and Mac/Linux (with Mono).
+ASCII DOS windows for Microsoft .Net/C#. 
+
+![Alt text](/screenshots/email1.png?raw=true "Optional Title")
+
+Windows are visualized character by character using ASCII symbols. The project works on Windows and Mac/Linux (with Mono).
 
 Library usage:
 
