@@ -11,7 +11,7 @@ Library usage:
 
 Programs:
   * provided: email.exe - allows you to check your gmail from the Windows or Linux console
-  * future: console pdf reader from that uses C# to convert the PDF to text
+  * future: console pdf reader that uses .NET to convert the PDF to text
   * future: chat client for What's up (C# API exists)
   * future: re-write of entire Midnight Commander in .NET
 
@@ -22,5 +22,9 @@ The library provides controls that all inherit from the DosWindow class. So they
   * progress bar window 
   * login window
   * list window (in progress)
+  
+Things to add:
+  * more Windows/Controls
+  * implement Windows overlay (several windows on top of each other), currently there is a simplified implementation
 
 
