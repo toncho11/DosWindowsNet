@@ -8,6 +8,7 @@ Library usage:
   * systems with limited resources such as Raspberry Pi, virtual machines
   * reduce hackers's attack surface by completely eliminating the graphical subsystem
   * you want 100% identical UI across different OS
+  * you get the most responsive UI and you prefer keybaord input
   
 The library provides controls that all inherit from the DosWindow class. So they are also called "windows". The following are provided:
   * standard window
