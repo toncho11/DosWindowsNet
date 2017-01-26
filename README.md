@@ -17,7 +17,7 @@ Programs:
 
 The library provides controls that all inherit from the DosWindow class. So they are also called "windows". The following are provided:
   * standard window
-  * textbox window
+  * textbox window (for input)
   * message window
   * progress bar window 
   * login window
