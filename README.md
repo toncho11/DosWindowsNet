@@ -1,2 +1,2 @@
 # DosWindowsNet
-Ascii DOS windows running under Microsoft .Net
+ASCII DOS windows running under Microsoft .Net
