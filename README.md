@@ -14,7 +14,7 @@ Library usage:
   * reduce hackers's attack surface by completely eliminating the graphical subsystem
 
 Programs:
-  * provided: email.exe - allows you to check your gmail from the Windows or Linux console
+  * provided: email.exe - a proof of concept app that allows you to check your gmail from the Windows or Linux console
   * future: console pdf reader that uses .NET to convert the PDF to text
   * future: chat client for WhatsApp (C# API exists)
   * future: re-write of entire Midnight Commander in .NET
