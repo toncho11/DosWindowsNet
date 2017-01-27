@@ -119,7 +119,7 @@ namespace email
             }
 
             ConsoleColor oldBgColor = Console.BackgroundColor;
-            Console.BackgroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = Console.ForegroundColor;
 
             Initialize();
 
@@ -140,6 +140,7 @@ namespace email
             StartLoop();
 
             Console.BackgroundColor = oldBgColor;
+            Console.ForegroundColor = oldBgColor;
             Console.Clear();
 
             //Console.WriteLine("╔═════════════╗");

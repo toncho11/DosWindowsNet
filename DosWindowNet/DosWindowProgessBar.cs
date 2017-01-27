@@ -23,14 +23,14 @@ namespace DosWindowNet
 
         public override void Draw()
         {
-            Console.CursorVisible = base.showCursor;
-
             base.Draw();
         }
 
         public void SetProgress(int progress)
         {
             Console.SetCursorPosition(posx + 1, posy + 1);
+
+            this.ApplyStyle();
 
             Console.Write(GetLine(progress, "▓"));
         }

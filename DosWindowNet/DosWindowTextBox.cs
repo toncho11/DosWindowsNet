@@ -22,8 +22,7 @@ namespace DosWindowNet
 
         public override bool ProcessKeyboardEvent(ConsoleKeyInfo ki)
         {
-            Console.BackgroundColor = bgColor;
-            Console.ForegroundColor = fgColor;
+            this.ApplyStyle();
 
             bool processed = false;
 
@@ -101,9 +100,12 @@ namespace DosWindowNet
             }
             set
             {
-                Console.BackgroundColor = bgColor;
+                this.ApplyStyle();
+
                 Console.SetCursorPosition(posx, posy + 1);
+
                 Console.Write(value);
+
                 text = new StringBuilder(value);
                 currentOffsetLeft = 0;
             }

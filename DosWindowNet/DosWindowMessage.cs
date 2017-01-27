@@ -31,12 +31,7 @@ namespace DosWindowNet
 
         public override void Draw()
         {
-            Console.CursorVisible = base.showCursor;
-
             base.Draw();
-
-            Console.BackgroundColor = bgColor;
-            Console.ForegroundColor = fgColor;
 
             Console.SetCursorPosition(posx + 1, posy + 1);
 

@@ -50,8 +50,7 @@ namespace DosWindowNet
 
         public virtual void Draw()
         {
-            Console.BackgroundColor = bgColor;
-            Console.ForegroundColor = fgColor;
+            this.ApplyStyle();
 
             //top
             if (showBorder)
@@ -158,12 +157,19 @@ namespace DosWindowNet
             }
             set
             {
-                Console.BackgroundColor = bgColor;
+                this.ApplyStyle();
 
                 Console.SetCursorPosition(posx + 1, posy + 1);
                 Console.Write(value);
                 text = new StringBuilder(value);
             }
+        }
+
+        protected void ApplyStyle()
+        {
+            Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor;
+            Console.CursorVisible = showCursor;
         }
     }
 }
