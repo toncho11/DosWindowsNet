@@ -16,16 +16,16 @@ namespace DosWindowNet
             showCursor = false;
         }
 
-        protected override void RegisterWindow()
-        {
+        //protected override void RegisterWindow()
+        //{
 
-        }
+        //}
 
         public override void Draw()
         {
-            base.Draw();
-
             Console.CursorVisible = base.showCursor;
+
+            base.Draw();
         }
 
         public void SetProgress(int progress)

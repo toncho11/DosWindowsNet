@@ -48,6 +48,9 @@ namespace DosWindowNet
 
         public override bool ProcessKeyboardEvent(ConsoleKeyInfo ki)
         {
+            Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor;
+
             bool processed = false;
 
             //move down
@@ -105,6 +108,8 @@ namespace DosWindowNet
         {
             base.Draw();
 
+            Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor;
             Console.CursorVisible = base.showCursor;
         }
     }

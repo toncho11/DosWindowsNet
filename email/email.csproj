@@ -67,9 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connection.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Connection.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

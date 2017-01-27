@@ -23,6 +23,7 @@ namespace DosWindowNet
         public override bool ProcessKeyboardEvent(ConsoleKeyInfo ki)
         {
             Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor;
 
             bool processed = false;
 

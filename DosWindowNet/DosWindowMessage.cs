@@ -8,8 +8,6 @@ namespace DosWindowNet
 {
     public class DosWindowMessage : DosWindow
     {
-        protected string text;
-
         public DosWindowMessage(int posx, int posy, int width, int height, string title)
             : base(posx,posy,width,height,title)
         {
@@ -20,23 +18,25 @@ namespace DosWindowNet
             : base((Console.WindowWidth - text.Length) / 2, 20, text.Length + 2, 2, title)
         {
             base.title = title;
-            this.text = text;
+            base.text = new StringBuilder(text);
             SkipTabOrder = true;
             showCursor = false;
+            base.bgColor = ConsoleColor.Red;
         }
 
-        protected override void RegisterWindow()
-        {
+        //protected override void RegisterWindow()
+        //{
            
-        }
+        //}
 
         public override void Draw()
         {
-            base.Draw();
-
             Console.CursorVisible = base.showCursor;
 
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            base.Draw();
+
+            Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor;
 
             Console.SetCursorPosition(posx + 1, posy + 1);
 

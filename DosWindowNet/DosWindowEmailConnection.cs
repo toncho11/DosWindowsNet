@@ -22,8 +22,8 @@ namespace DosWindowNet
             base.Draw();
 
             Console.CursorVisible = base.showCursor;
-
             Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor;
 
             Console.SetCursorPosition(posx + 1, posy + 1);
             Console.Write("Email address:");

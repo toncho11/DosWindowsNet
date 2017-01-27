@@ -15,10 +15,12 @@ namespace DosWindowNet
         protected string title;
         protected bool isVisible;
         protected bool showBorder;
-        protected ConsoleColor bgColor;
         public bool SkipTabOrder;
         protected bool showCursor;
         protected StringBuilder text;
+
+        protected ConsoleColor bgColor;
+        protected ConsoleColor fgColor;
 
         public DosWindow(int posx, int posy, int width, int height, string title)
         {
@@ -32,26 +34,30 @@ namespace DosWindowNet
             showBorder = true;
 
             bgColor = ConsoleColor.DarkBlue;
+            fgColor = ConsoleColor.White;
+
             SkipTabOrder = false;
             showCursor = true;
-            RegisterWindow();
+            //RegisterWindow();
+
+            Window.List.Add(this);
         }
 
-        protected virtual void RegisterWindow()
-        {
-             Window.List.Add(this);
-        }
+        //protected virtual void RegisterWindow()
+        //{
+        //     Window.List.Add(this);
+        //}
 
         public virtual void Draw()
         {
-            ConsoleColor oldColor = Console.BackgroundColor;
-
             Console.BackgroundColor = bgColor;
+            Console.ForegroundColor = fgColor;
 
-            Console.SetCursorPosition(posx, posy);
-
+            //top
             if (showBorder)
             {
+                Console.SetCursorPosition(posx, posy);
+
                 if (!string.IsNullOrWhiteSpace(title))
                 {
                     int leftTopLine = (width - title.Length - 4) / 2;
@@ -61,8 +67,8 @@ namespace DosWindowNet
                 else Console.Write("╔" + GetLine(width, "═") + "╗");
             }
 
+            //body
             Console.SetCursorPosition(posx, posy + 1);
-
             for (int i = 0; i < height; i++)
             {
                 if (showBorder) Console.Write("║");
@@ -74,6 +80,7 @@ namespace DosWindowNet
                 Console.SetCursorPosition(posx, posy + i + 1);
             }
 
+            //bottom
             if (showBorder)
             {
                 Console.SetCursorPosition(posx, posy + height);
@@ -81,9 +88,8 @@ namespace DosWindowNet
                 Console.Write("╚" + GetLine(width, "═") + "╝");
             }
 
+            //set position for text output
             Console.SetCursorPosition(posx + 1, posy + 1);
-
-            Console.BackgroundColor = oldColor;
 
             isVisible = true;
         }
@@ -100,9 +106,6 @@ namespace DosWindowNet
 
         public void Hide()
         {
-            ConsoleColor oldBGColor = Console.BackgroundColor;
-            ConsoleColor oldFgColor = Console.ForegroundColor;
-
             Console.BackgroundColor = Dekstop.CurrentBackgroundColor;
             Console.ForegroundColor = Dekstop.CurrentForegroundColor;
 
@@ -118,9 +121,6 @@ namespace DosWindowNet
                 }
                 Console.Write(line);
             }
-
-            Console.BackgroundColor = oldBGColor;
-            Console.ForegroundColor = oldFgColor;
 
             isVisible = false;
         }
@@ -159,6 +159,7 @@ namespace DosWindowNet
             set
             {
                 Console.BackgroundColor = bgColor;
+
                 Console.SetCursorPosition(posx + 1, posy + 1);
                 Console.Write(value);
                 text = new StringBuilder(value);

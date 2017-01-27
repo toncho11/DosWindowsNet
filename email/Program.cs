@@ -19,16 +19,17 @@ namespace email
 
     class Program
     {
+        #region Windows declarations
         static DosWindowEmailConnection winCredentials;
-        //static DosWindowProgessBar winPB;
         static DosWindowList winEmailList;
         static DosWindow winEmailBody;
         static DosWindowTextBox tbEmailAddress;
         static DosWindowTextBox tbPassword;
-        static Hashtable htConnection;
         static DosWindowTextBox tbServer;
         static DosWindowTextBox tbPort;
+        #endregion
 
+        static Hashtable htConnection;
         static System.Net.Mail.MailMessage[] messages;
 
         public static void Initialize()
