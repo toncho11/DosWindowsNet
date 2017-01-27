@@ -38,15 +38,9 @@ namespace DosWindowNet
 
             SkipTabOrder = false;
             showCursor = true;
-            //RegisterWindow();
 
             Window.List.Add(this);
         }
-
-        //protected virtual void RegisterWindow()
-        //{
-        //     Window.List.Add(this);
-        //}
 
         public virtual void Draw()
         {
@@ -141,7 +135,7 @@ namespace DosWindowNet
 
         public virtual void SetToFocus()
         {
-            //change color of window
+            //TODO: change color of window
             if (showBorder)
                 Console.SetCursorPosition(posx + 1, posy + 1);
             else Console.SetCursorPosition(posx, posy+1);

@@ -16,11 +16,6 @@ namespace DosWindowNet
             showCursor = false;
         }
 
-        //protected override void RegisterWindow()
-        //{
-
-        //}
-
         public override void Draw()
         {
             base.Draw();

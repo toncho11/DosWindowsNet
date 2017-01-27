@@ -24,11 +24,6 @@ namespace DosWindowNet
             base.bgColor = ConsoleColor.Red;
         }
 
-        //protected override void RegisterWindow()
-        //{
-           
-        //}
-
         public override void Draw()
         {
             base.Draw();

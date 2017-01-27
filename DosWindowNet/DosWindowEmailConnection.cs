@@ -11,8 +11,6 @@ namespace DosWindowNet
         public DosWindowEmailConnection(int posx, int posy, int width, int height, string title)
             : base(posx,posy,width,height,title)
         {
-            //Register
-           // Window.List.Add(this);
             SkipTabOrder = true;
             showCursor = false;
         }

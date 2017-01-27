@@ -19,8 +19,6 @@ namespace DosWindowNet
         public DosWindowList(int posx, int posy, int width, int height, string title)
             : base(posx,posy,width,height,title)
         {
-            //Register
-            //Window.List.Add(this);
             showCursor = false;
         }
 
@@ -83,7 +81,7 @@ namespace DosWindowNet
 
         public void SelectRow(bool isSelected, int index)
         {
-            //select //deselect row
+            //select / deselect row
 
             if (isSelected)
             {

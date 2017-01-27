@@ -125,7 +125,7 @@ namespace email
             }
 
             ConsoleColor oldBgColor = Console.BackgroundColor;
-            Console.BackgroundColor = Console.ForegroundColor;
+            ConsoleColor oldFgColor = Console.ForegroundColor;
 
             Initialize();
 
@@ -146,7 +146,7 @@ namespace email
             StartLoop();
 
             Console.BackgroundColor = oldBgColor;
-            Console.ForegroundColor = oldBgColor;
+            Console.ForegroundColor = oldFgColor;
             Console.Clear();
 
             //Console.WriteLine("╔═════════════╗");
@@ -178,7 +178,7 @@ namespace email
 
                 winEmailList.LoadList(list);
 
-                do //go to Message List
+                do //go to Message List (the only of type DosWindowList)
                 {
                     Window.GiveFocusToNextWindow();
                 }
@@ -195,12 +195,13 @@ namespace email
 
             //if two-factor authentication is active then it requires app password: https://security.google.com/settings/security/apppasswords
 
+            ImapClient Client = null;
             try
             {
                 if (htConnection == null) throw new Exception("Missing connection settings!");
                 if (winPB!=null) winPB.SetProgress(2);
 
-                ImapClient Client = new ImapClient(
+                Client = new ImapClient(
                     tbServer.Text, 
                     Convert.ToInt32(tbPort.Text), 
                     tbEmailAddress.Text, 
@@ -218,7 +219,7 @@ namespace email
                 list = (from message in messages
                         select message.Subject).ToList();
 
-                Client.Dispose();//to verify
+                
             }
             catch (Exception ex)
             {
@@ -232,6 +233,10 @@ namespace email
                 DosWindowMessage winError = new DosWindowMessage(message, "Error");
                 winError.Draw();
             }
+            finally
+            {
+                if (Client != null) Client.Dispose();
+            }
 
             return list;
         }
@@ -239,7 +244,6 @@ namespace email
         public static void CreateTopMenu()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-
             Console.SetCursorPosition(0, 0);
 
             Console.Write("ESC - Quit");
