@@ -5,3 +5,5 @@
 /email/*.user
 /.vs/DosWindowNet/v14/*.suo
 /email/connection.config
+/*.userprefs
+/DosWindowNet/*.TMP
