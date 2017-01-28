@@ -16,6 +16,7 @@ Library usage:
 Programs:
   * provided: email.exe - a proof of concept app that allows you to check your gmail from the Windows or Linux console
   * future: chat client for WhatsApp (C# API exists)
+  * future: weather application with current 
   * future: console pdf reader that uses .NET to convert the PDF to text
   * future: re-write of entire Midnight Commander in .NET
 
