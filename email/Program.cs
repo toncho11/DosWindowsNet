@@ -107,8 +107,6 @@ namespace email
                     //Refocus
                     Window.GetCurrentWindow().SetToFocus();
                 }
-
-                System.Threading.Thread.Sleep(30);
             }
         }
 
