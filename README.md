@@ -15,8 +15,10 @@ Library usage:
 
 Programs:
   * provided: email.exe - a proof of concept app that allows you to check your gmail from the Windows or Linux console
-  * future: console pdf reader that uses .NET to convert the PDF to text
+  * future: rewrite of the Linux's screen command with the split screen functionality
   * future: chat client for WhatsApp (C# API exists)
+  * future: weather application with current temperature and forecast
+  * future: console pdf reader that uses .NET to convert the PDF to text
   * future: re-write of entire Midnight Commander in .NET
 
 The library provides controls that all inherit from the DosWindow class. So they are also called "windows". The following are provided:
@@ -28,7 +30,7 @@ The library provides controls that all inherit from the DosWindow class. So they
   * list window (in progress)
   
 Things to add:
-  * more Windows/Controls
+  * more Windows/Controls (checkbox for example)
   * implement Windows overlay (several windows on top of each other)
   * add shadow to DosWindow
 
