@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.Linq;
-
-using S22.Imap;
 using System.Collections;
 using System.IO;
+
+using S22.Imap;
 using DosWindowNet;
 
 namespace email
 {
     //https://github.com/Automattic/cli-table
     //http://stackoverflow.com/questions/17619279/extended-ascii-in-c-sharp
-    //https://en.wikipedia.org/wiki/Code_page_437
+    //https://en.wikipedia.org/wiki/Code_page_437 - contains the characters used to draw the windows
     //For Bulgarian Font must be changed to Consolas on Windows
     //http://stackoverflow.com/questions/7524057/how-do-i-change-the-full-background-color-of-the-console-window-in-c
+    //https://github.com/auriou/FIGlet - output text using ascii art
 
     class Program
     {
