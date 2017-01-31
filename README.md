@@ -1,7 +1,7 @@
 # DosWindowsNet
 ASCII DOS windows for Microsoft .Net/C#. 
 
-![Alt text](/screenshots/email1.png?raw=true "email.exe can check e-mail from gmail")
+![Alt text](/screenshots/email2.png?raw=true "email.exe can check e-mail from gmail")
 
 Windows are visualized character by character using ASCII symbols. The project works on Windows and Mac/Linux (with Mono).
 
