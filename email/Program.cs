@@ -24,6 +24,7 @@ namespace email
         static DosWindowEmailConnection winCredentials;
         static DosWindowList winEmailList;
         static DosWindow winEmailBody;
+        static DosWindowMessage winAbout = null;
         static DosWindowTextBox tbEmailAddress;
         static DosWindowTextBox tbPassword;
         static DosWindowTextBox tbServer;
@@ -98,9 +99,10 @@ namespace email
                     {
                         Window.GiveFocusToNextWindow();
                     }
+                    else
                     if (keyInfo.Key == ConsoleKey.F3)
                     {
-                        DosWindowMessage winAbout = new DosWindowMessage("Console e-mail client by Anton Andreev v1.0", "About");
+                        winAbout = new DosWindowMessage("Console e-mail client by Anton Andreev v1.0", "About");
                         winAbout.Draw();
                     }
 

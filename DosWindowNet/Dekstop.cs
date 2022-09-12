@@ -12,7 +12,7 @@ namespace DosWindowNet
 
         static Dekstop()
         {
-            matrix = new string[Console.WindowWidth, Console.WindowHeight];
+            //matrix = new string[Console.WindowWidth, Console.WindowHeight];
         }
 
         public static void Draw()
@@ -21,6 +21,7 @@ namespace DosWindowNet
 
             ConsoleColor oldBGColor = Console.BackgroundColor;
             ConsoleColor oldFgColor = Console.ForegroundColor;
+
             Console.BackgroundColor = CurrentBackgroundColor;
             Console.ForegroundColor = CurrentForegroundColor;
 
@@ -29,14 +30,19 @@ namespace DosWindowNet
             var w = Console.WindowWidth;
             var h = Console.WindowHeight;
 
+            Buffer.DoNotOverWrite = true;
+
+            Buffer.SetAll(CurrentBackgroundColor);
+
             for (int j = 0; j < (h - 0); j++)
             {
                 for (int i = 0; i < w; i++)
                 {
-                    Dekstop.matrix[i, j] = "▓";
-                    Console.Write("▓");
+                    Buffer.Write("▓");
                 }
             }
+
+            Buffer.DoNotOverWrite = false;
 
             Console.BackgroundColor = oldBGColor;
             Console.ForegroundColor = oldFgColor;

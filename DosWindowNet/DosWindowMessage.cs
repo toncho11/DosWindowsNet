@@ -26,6 +26,8 @@ namespace DosWindowNet
 
         public override void Draw()
         {
+            this.Save();
+
             base.Draw();
 
             Console.SetCursorPosition(posx + 1, posy + 1);
@@ -35,7 +37,8 @@ namespace DosWindowNet
             //wait for key pressed
             Console.ReadKey();
 
-            base.Hide();
+            //base.Hide();
+            base.Restore();
         }
     }
 }

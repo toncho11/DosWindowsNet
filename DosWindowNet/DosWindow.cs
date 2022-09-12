@@ -26,6 +26,8 @@ namespace DosWindowNet
         protected ConsoleColor bgColor;
         protected ConsoleColor fgColor;
 
+        protected string[] previousScreen = null;
+
         public DosWindow(int posx, int posy, int width, int height, string title)
         {
             this.posx = posx;
@@ -46,6 +48,11 @@ namespace DosWindowNet
             Window.List.Add(this);
         }
 
+        public void Save()
+        {
+            Buffer.DoNotOverWrite = true;
+        }
+
         public virtual void Draw()
         {
             this.ApplyStyle();
@@ -53,40 +60,41 @@ namespace DosWindowNet
             //top
             if (showBorder)
             {
-                Console.SetCursorPosition(posx, posy);
+                //Console.SetCursorPosition(posx, posy);
+                Buffer.SetCursorPosition(posx, posy);
 
                 if (!string.IsNullOrWhiteSpace(title))
                 {
                     int leftTopLine = (width - title.Length - 4) / 2;
 
-                    Console.Write("╔" + DrawLine(leftTopLine, "═") + "[ " + title + " ]" + DrawLine(width - leftTopLine - title.Length - 4, "═") + "╗");
+                    Buffer.Write("╔" + DrawLine(leftTopLine, "═") + "[ " + title + " ]" + DrawLine(width - leftTopLine - title.Length - 4, "═") + "╗");
                 }
-                else Console.Write("╔" + DrawLine(width, "═") + "╗");
+                else Buffer.Write("╔" + DrawLine(width, "═") + "╗");
             }
 
             //body
-            Console.SetCursorPosition(posx, posy + 1);
+            Buffer.SetCursorPosition(posx, posy + 1);
             for (int i = 0; i < height; i++)
             {
-                if (showBorder) Console.Write("║");
+                if (showBorder) Buffer.Write("║");
 
-                for (int j = 0; j < width; j++) Console.Write(" ");
+                for (int j = 0; j < width; j++) Buffer.Write(" ");
 
-                if (showBorder) Console.Write("║");
+                if (showBorder) Buffer.Write("║");
 
-                Console.SetCursorPosition(posx, posy + i + 1);
+                Buffer.SetCursorPosition(posx, posy + i + 1);
             }
 
             //bottom
             if (showBorder)
             {
-                Console.SetCursorPosition(posx, posy + height);
+                Buffer.SetCursorPosition(posx, posy + height);
 
-                Console.Write("╚" + DrawLine(width, "═") + "╝");
+                Buffer.Write("╚" + DrawLine(width, "═") + "╝");
             }
 
             //set position for text output
-            Console.SetCursorPosition(posx + 1, posy + 1);
+            Buffer.SetCursorPosition(posx + 1, posy + 1);
 
             isVisible = true;
         }
@@ -168,6 +176,31 @@ namespace DosWindowNet
             Console.BackgroundColor = bgColor;
             Console.ForegroundColor = fgColor;
             Console.CursorVisible = showCursor;
+        }
+
+        /// <summary>
+        /// The better version of hide
+        /// </summary>
+        public void Restore() 
+        {
+
+            for (int y = 0; y< (height+1);y++)
+            {
+                Console.SetCursorPosition(posx, posy + y);
+
+                for (int x=0; x < (width + 2); x++)
+                {
+                    ConsoleColor fgc;
+                    ConsoleColor bgc;
+                    char ch = Buffer.Get(posx + x, posy + y, out bgc, out fgc);
+                    Console.ForegroundColor = fgc;
+                    Console.BackgroundColor = bgc;
+                    Console.Write(ch);
+                }
+            }
+
+            Buffer.DoNotOverWrite = false;
+
         }
     }
 }

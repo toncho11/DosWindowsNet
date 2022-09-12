@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buffer.cs" />
+    <Compile Include="ConsoleReader.cs" />
     <Compile Include="Dekstop.cs" />
     <Compile Include="DosWindow.cs" />
     <Compile Include="DosWindowEmailConnection.cs" />
