@@ -92,6 +92,8 @@ namespace email
                     else
                     if (keyInfo.Key == ConsoleKey.Escape)
                     {
+                        //winAbout = new DosWindowMessage("Do you want to exit Y/N?", "Exit");
+                        //winAbout.Draw();
                         break;
                     }
                     else
