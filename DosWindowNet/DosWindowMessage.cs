@@ -21,7 +21,7 @@ namespace DosWindowNet
             base.text = new StringBuilder(text);
             SkipTabOrder = true;
             showCursor = false;
-            base.bgColor = ConsoleColor.Red;
+            base.bgColor = ConsoleColor.DarkRed;
         }
 
         public override void Draw()

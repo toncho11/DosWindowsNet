@@ -27,7 +27,7 @@ namespace DosWindowNet
 
             this.ApplyStyle();
 
-            Console.Write(GetLine(progress, "▓"));
+            Console.Write(DrawLine(progress, "▓"));
         }
     }
 }

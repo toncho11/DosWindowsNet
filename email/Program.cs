@@ -124,7 +124,7 @@ namespace email
 
             if (File.Exists("Connection.config"))
             {
-                htConnection = getSettings("Connection.config");
+                htConnection = GetSettings("Connection.config");
             }
 
             ConsoleColor oldBgColor = Console.BackgroundColor;
@@ -258,7 +258,12 @@ namespace email
             Console.Write("Tab - switch controls");
         }
 
-        private static Hashtable getSettings(string path)
+        /// <summary>
+        /// Used to read a config file such as Connection.config
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private static Hashtable GetSettings(string path)
         {
             try
             {

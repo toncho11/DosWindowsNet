@@ -10,13 +10,17 @@ namespace DosWindowNet
     {
         protected int posx;
         protected int posy;
+
         protected int width;
         protected int height;
+
         protected string title;
+
         protected bool isVisible;
         protected bool showBorder;
         public bool SkipTabOrder;
         protected bool showCursor;
+
         protected StringBuilder text;
 
         protected ConsoleColor bgColor;
@@ -55,9 +59,9 @@ namespace DosWindowNet
                 {
                     int leftTopLine = (width - title.Length - 4) / 2;
 
-                    Console.Write("╔" + GetLine(leftTopLine, "═") + "[ " + title + " ]" + GetLine(width - leftTopLine - title.Length - 4, "═") + "╗");
+                    Console.Write("╔" + DrawLine(leftTopLine, "═") + "[ " + title + " ]" + DrawLine(width - leftTopLine - title.Length - 4, "═") + "╗");
                 }
-                else Console.Write("╔" + GetLine(width, "═") + "╗");
+                else Console.Write("╔" + DrawLine(width, "═") + "╗");
             }
 
             //body
@@ -78,7 +82,7 @@ namespace DosWindowNet
             {
                 Console.SetCursorPosition(posx, posy + height);
 
-                Console.Write("╚" + GetLine(width, "═") + "╝");
+                Console.Write("╚" + DrawLine(width, "═") + "╝");
             }
 
             //set position for text output
@@ -87,7 +91,7 @@ namespace DosWindowNet
             isVisible = true;
         }
 
-        protected static string GetLine(int i,string character)
+        protected static string DrawLine(int i,string character)
         {
             string p = "";
 
