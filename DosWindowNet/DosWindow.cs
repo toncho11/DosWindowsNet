@@ -50,7 +50,7 @@ namespace DosWindowNet
 
         public void Save()
         {
-            Buffer.DoNotOverWrite = true;
+            ScrBuffer.DoNotOverWrite = true;
         }
 
         public virtual void Draw()
@@ -61,40 +61,40 @@ namespace DosWindowNet
             if (showBorder)
             {
                 //Console.SetCursorPosition(posx, posy);
-                Buffer.SetCursorPosition(posx, posy);
+                ScrBuffer.SetCursorPosition(posx, posy);
 
                 if (!string.IsNullOrWhiteSpace(title))
                 {
                     int leftTopLine = (width - title.Length - 4) / 2;
 
-                    Buffer.Write("╔" + DrawLine(leftTopLine, "═") + "[ " + title + " ]" + DrawLine(width - leftTopLine - title.Length - 4, "═") + "╗");
+                    ScrBuffer.Write("╔" + DrawLine(leftTopLine, "═") + "[ " + title + " ]" + DrawLine(width - leftTopLine - title.Length - 4, "═") + "╗");
                 }
-                else Buffer.Write("╔" + DrawLine(width, "═") + "╗");
+                else ScrBuffer.Write("╔" + DrawLine(width, "═") + "╗");
             }
 
             //body
-            Buffer.SetCursorPosition(posx, posy + 1);
+            ScrBuffer.SetCursorPosition(posx, posy + 1);
             for (int i = 0; i < height; i++)
             {
-                if (showBorder) Buffer.Write("║");
+                if (showBorder) ScrBuffer.Write("║");
 
-                for (int j = 0; j < width; j++) Buffer.Write(" ");
+                for (int j = 0; j < width; j++) ScrBuffer.Write(" ");
 
-                if (showBorder) Buffer.Write("║");
+                if (showBorder) ScrBuffer.Write("║");
 
-                Buffer.SetCursorPosition(posx, posy + i + 1);
+                ScrBuffer.SetCursorPosition(posx, posy + i + 1);
             }
 
             //bottom
             if (showBorder)
             {
-                Buffer.SetCursorPosition(posx, posy + height);
+                ScrBuffer.SetCursorPosition(posx, posy + height);
 
-                Buffer.Write("╚" + DrawLine(width, "═") + "╝");
+                ScrBuffer.Write("╚" + DrawLine(width, "═") + "╝");
             }
 
             //set position for text output
-            Buffer.SetCursorPosition(posx + 1, posy + 1);
+            ScrBuffer.SetCursorPosition(posx + 1, posy + 1);
 
             isVisible = true;
         }
@@ -192,14 +192,14 @@ namespace DosWindowNet
                 {
                     ConsoleColor fgc;
                     ConsoleColor bgc;
-                    char ch = Buffer.Get(posx + x, posy + y, out bgc, out fgc);
+                    char ch = ScrBuffer.Get(posx + x, posy + y, out bgc, out fgc);
                     Console.ForegroundColor = fgc;
                     Console.BackgroundColor = bgc;
                     Console.Write(ch);
                 }
             }
 
-            Buffer.DoNotOverWrite = false;
+            ScrBuffer.DoNotOverWrite = false;
 
         }
     }

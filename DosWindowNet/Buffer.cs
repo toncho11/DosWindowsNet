@@ -2,7 +2,7 @@
 
 namespace DosWindowNet
 {
-    public class Buffer
+    public class ScrBuffer
     {
         //TODO set the correct size
         static char[,] CHAR = new char[200,200];

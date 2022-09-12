@@ -30,19 +30,19 @@ namespace DosWindowNet
             var w = Console.WindowWidth;
             var h = Console.WindowHeight;
 
-            Buffer.DoNotOverWrite = true;
+            ScrBuffer.DoNotOverWrite = true;
 
-            Buffer.SetAll(CurrentBackgroundColor);
+            ScrBuffer.SetAll(CurrentBackgroundColor);
 
             for (int j = 0; j < (h - 0); j++)
             {
                 for (int i = 0; i < w; i++)
                 {
-                    Buffer.Write("▓");
+                    ScrBuffer.Write("▓");
                 }
             }
 
-            Buffer.DoNotOverWrite = false;
+            ScrBuffer.DoNotOverWrite = false;
 
             Console.BackgroundColor = oldBGColor;
             Console.ForegroundColor = oldFgColor;
@@ -52,14 +52,14 @@ namespace DosWindowNet
         {
             get
             {
-                return ConsoleColor.DarkGray;
+                return ConsoleColor.Black;
             }
         }
         public static ConsoleColor CurrentForegroundColor
         {
             get
             {
-                return ConsoleColor.DarkGray;
+                return ConsoleColor.Black;
             }
         }
     }

@@ -24,7 +24,8 @@ namespace email
         static DosWindowEmailConnection winCredentials;
         static DosWindowList winEmailList;
         static DosWindow winEmailBody;
-        static DosWindowMessage winAbout = null;
+        static DosWindowMessage winAbout;
+        static DosWindowDialog winExit;
         static DosWindowTextBox tbEmailAddress;
         static DosWindowTextBox tbPassword;
         static DosWindowTextBox tbServer;
@@ -33,6 +34,11 @@ namespace email
 
         static Hashtable htConnection;
         static System.Net.Mail.MailMessage[] messages;
+
+        static ConsoleColor oldBgColor;
+        static ConsoleColor oldFgColor;
+
+        static bool shouldExit = false;
 
         public static void Initialize()
         {
@@ -92,9 +98,12 @@ namespace email
                     else
                     if (keyInfo.Key == ConsoleKey.Escape)
                     {
-                        //winAbout = new DosWindowMessage("Do you want to exit Y/N?", "Exit");
-                        //winAbout.Draw();
-                        break;
+                        winExit = new DosWindowDialog("Do you want to exit Y/N?", "Exit");
+                        winExit.KeyPressed += WinExit_KeyPressed;
+                        winExit.Draw();
+
+                        if (shouldExit)
+                            break;
                     }
                     else
                     if (keyInfo.Key == ConsoleKey.Tab || keyInfo.Key == ConsoleKey.DownArrow)
@@ -118,6 +127,15 @@ namespace email
             }
         }
 
+
+        private static void WinExit_KeyPressed(ConsoleKeyInfo key)
+        {
+            if (key.Key == ConsoleKey.Y)
+            {
+                shouldExit = true;
+            }
+        }
+
         static void Main(string[] args)
         {
             if (Console.WindowWidth<80 || Console.WindowHeight < 25)
@@ -131,8 +149,8 @@ namespace email
                 htConnection = GetSettings("Connection.config");
             }
 
-            ConsoleColor oldBgColor = Console.BackgroundColor;
-            ConsoleColor oldFgColor = Console.ForegroundColor;
+            oldBgColor = Console.BackgroundColor;
+            oldFgColor = Console.ForegroundColor;
 
             Initialize();
 
@@ -152,9 +170,7 @@ namespace email
 
             StartLoop();
 
-            Console.BackgroundColor = oldBgColor;
-            Console.ForegroundColor = oldFgColor;
-            Console.Clear();
+            Exit();
 
             //Console.WriteLine("╔═════════════╗");
             //Console.WriteLine("║             ║");
@@ -167,6 +183,14 @@ namespace email
             //    source[0] = i;
             //    AnsiLookup.Add(i, cp437.GetString(source));
             //}
+        }
+
+        public static void Exit()
+        {
+            Console.BackgroundColor = oldBgColor;
+            Console.ForegroundColor = oldFgColor;
+            Console.Clear();
+            Console.WriteLine("Bye.");
         }
 
         public static void ReloadMails()
@@ -251,15 +275,15 @@ namespace email
         public static void CreateTopMenu()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.SetCursorPosition(0, 0);
+            ScrBuffer.SetCursorPosition(0, 0);
 
-            Console.Write("ESC - Quit");
-            Console.SetCursorPosition(11, 0);
-            Console.Write("F2 - Check e-mail");
-            Console.SetCursorPosition(29, 0);
-            Console.Write("F3 - About");
-            Console.SetCursorPosition(40, 0);
-            Console.Write("Tab - switch controls");
+            ScrBuffer.Write("ESC - Quit");
+            ScrBuffer.SetCursorPosition(11, 0);
+            ScrBuffer.Write("F2 - Check e-mail");
+            ScrBuffer.SetCursorPosition(29, 0);
+            ScrBuffer.Write("F3 - About");
+            ScrBuffer.SetCursorPosition(40, 0);
+            ScrBuffer.Write("Tab - switch controls");
         }
 
         /// <summary>

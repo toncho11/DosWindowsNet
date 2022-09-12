@@ -43,6 +43,7 @@
     <Compile Include="Buffer.cs" />
     <Compile Include="Dekstop.cs" />
     <Compile Include="DosWindow.cs" />
+    <Compile Include="DosWindowDialog.cs" />
     <Compile Include="DosWindowEmailConnection.cs" />
     <Compile Include="DosWindowList.cs" />
     <Compile Include="DosWindowMessage.cs" />
