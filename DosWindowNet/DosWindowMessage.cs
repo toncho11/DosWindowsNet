@@ -24,6 +24,16 @@ namespace DosWindowNet
             base.bgColor = ConsoleColor.DarkRed;
         }
 
+        public DosWindowMessage(int posy, string text, string title)
+           : base((Console.WindowWidth - text.Length) / 2, posy, text.Length + 2, 2, title)
+        {
+            base.title = title;
+            base.text = new StringBuilder(text);
+            SkipTabOrder = true;
+            showCursor = false;
+            base.bgColor = ConsoleColor.DarkRed;
+        }
+
         public override void Draw()
         {
             this.Save();

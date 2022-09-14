@@ -138,7 +138,7 @@ namespace email
 
         static void Main(string[] args)
         {
-			Console.SetBufferSize(80, 40);
+            //Console.SetBufferSize(80, 40); //not clear why it does not accept an equal to the screen value
 			Console.SetWindowSize(80, 40);
 			
             if (Console.WindowWidth<80 || Console.WindowHeight < 25)
@@ -201,7 +201,8 @@ namespace email
             winEmailList.Draw(); //clear old data
             winEmailBody.Draw(); //clear old data
 
-            DosWindowProgessBar winPB = new DosWindowProgessBar(60, "Retrieving data");
+            DosWindowProgessBar winPB = new DosWindowProgessBar(60, 13, "Retrieving data");
+            winPB.SetColors(ConsoleColor.DarkGreen, ConsoleColor.White);
             winPB.Draw(); //show window
 
             List<string> list = GetMails(winPB); //updates the winPB progress bar
@@ -220,7 +221,8 @@ namespace email
             }
 
             System.Threading.Thread.Sleep(150);
-            winPB.Hide();
+            
+            winPB.Restore();
         }
 
         public static List<string> GetMails(DosWindowProgessBar winPB)
@@ -263,8 +265,7 @@ namespace email
                 if (posIC != -1)
                     message = message.Substring(posIC);
 
-                message = message.Substring(0, Math.Min(message.Length, Console.WindowWidth - 11)) + "...";
-                DosWindowMessage winError = new DosWindowMessage(message, "Error");
+                DosWindowMessage winError = new DosWindowMessage(25, message, "Error");
                 winError.Draw();
             }
             finally

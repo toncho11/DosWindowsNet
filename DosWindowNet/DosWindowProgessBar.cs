@@ -16,8 +16,18 @@ namespace DosWindowNet
             showCursor = false;
         }
 
+        public DosWindowProgessBar(int width, int posy, string title)
+           : base((Console.WindowWidth - width) / 2, posy, width + 2, 2, title)
+        {
+            base.title = title;
+            SkipTabOrder = true;
+            showCursor = false;
+        }
+
         public override void Draw()
         {
+            Save();
+
             base.Draw();
         }
 

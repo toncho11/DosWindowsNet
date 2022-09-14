@@ -109,28 +109,32 @@ namespace DosWindowNet
             return p;
         }
 
-        public void Hide()
-        {
-            Console.BackgroundColor = Dekstop.CurrentBackgroundColor;
-            Console.ForegroundColor = Dekstop.CurrentForegroundColor;
+        //public void Hide()
+        //{
+        //    Console.BackgroundColor = Dekstop.CurrentBackgroundColor;
+        //    Console.ForegroundColor = Dekstop.CurrentForegroundColor;
 
-            for (int j = 0; j < height + 1; j++)
-            {
-                Console.SetCursorPosition(posx, posy + j);
+        //    for (int j = 0; j < height + 1; j++)
+        //    {
+        //        Console.SetCursorPosition(posx, posy + j);
 
-                string line = string.Empty;
-                for (int i = 0; i < width + 2; i++)
-                {
-                    line += Dekstop.matrix[i, j];
+        //        string line = string.Empty;
+        //        for (int i = 0; i < width + 2; i++)
+        //        {
+        //            line += Dekstop.matrix[i, j];
 
-                }
-                Console.Write(line);
-            }
+        //        }
+        //        Console.Write(line);
+        //    }
 
-            isVisible = false;
-        }
+        //    isVisible = false;
+        //}
 
-
+        /// <summary>
+        /// This method is designed to be overloaded
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public virtual bool ProcessKeyboardEvent(ConsoleKeyInfo key)
         {
             bool Processed = false;
@@ -201,6 +205,11 @@ namespace DosWindowNet
 
             ScrBuffer.DoNotOverWrite = false;
 
+        }
+        public void SetColors(ConsoleColor bgc, ConsoleColor fgc)
+        {
+            fgColor = fgc;
+            bgColor = bgc;
         }
     }
 }
