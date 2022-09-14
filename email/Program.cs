@@ -138,6 +138,7 @@ namespace email
 
         static void Main(string[] args)
         {
+			Console.SetBufferSize(80, 40);
 			Console.SetWindowSize(80, 40);
 			
             if (Console.WindowWidth<80 || Console.WindowHeight < 25)
