@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -169,8 +170,15 @@ namespace DosWindowNet
             {
                 this.ApplyStyle();
 
-                Console.SetCursorPosition(posx + 1, posy + 1);
-                Console.Write(value);
+                int linen = 1;
+                string[] lines = value.Split('\n');
+                foreach (string line in lines)
+                {
+                    Console.SetCursorPosition(posx + 1, posy + linen);
+                    Console.Write(line.Replace("\r", "")); //TODO: implement text wrap to fit in the window
+                    linen++;
+                }
+
                 text = new StringBuilder(value);
             }
         }

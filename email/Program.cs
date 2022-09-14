@@ -74,7 +74,7 @@ namespace email
         {
             winEmailBody.Draw(); //clear
             string body = messages[index].Body;
-            winEmailBody.Text = body.Substring(0,60);
+            winEmailBody.Text = body.Substring(0,80); //TODO: remove the restrictions of 80 characters after adding word wraping and scrolling !
         }
 
         public static void StartLoop()
@@ -249,19 +249,28 @@ namespace email
                 IEnumerable<uint> uids = Client.Search(SearchCondition.Unseen());
                 if (winPB != null) winPB.SetProgress(40);
 
-                messages = (Client.GetMessages(uids, false)).ToArray();
-                if (winPB != null) winPB.SetProgress(62);
+                if (uids.Count() != 0)
+                {
+                    messages = (Client.GetMessages(uids, false)).ToArray();
+                    if (winPB != null) winPB.SetProgress(62);
 
-                list = (from message in messages
-                        select message.Subject).ToList();
-
+                    list = (from message in messages
+                            select message.Subject).ToList();
+                }
+                else
+                {
+                    winPB.SetProgress(62);
+                    winAbout = new DosWindowMessage("No UNSEEN messages", "Info");
+                    winAbout.Draw();
+                }
                 
             }
             catch (Exception ex)
             {
                 string message = ex.Message;
-                int posIC = message.IndexOf("Invalid credentials!");
 
+                //check if it is Invalid credentials
+                int posIC = message.IndexOf("Invalid credentials!");
                 if (posIC != -1)
                     message = message.Substring(posIC);
 
