@@ -138,6 +138,8 @@ namespace email
 
         static void Main(string[] args)
         {
+			Console.SetWindowSize(80, 40);
+			
             if (Console.WindowWidth<80 || Console.WindowHeight < 25)
             {
                 Console.WriteLine("At least a terminal window of 80 x 25 is required." + Environment.NewLine+ "Press any key to continue anyway.");
