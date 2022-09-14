@@ -18,6 +18,10 @@ namespace email
     //http://stackoverflow.com/questions/7524057/how-do-i-change-the-full-background-color-of-the-console-window-in-c
     //https://github.com/auriou/FIGlet - output text using ascii art
 
+    /// <summary>
+    /// A console application that checks your email.
+    /// Currently the S22.IMAP library is used, but in the future it should be replaced by MailKit.
+    /// </summary>
     class Program
     {
         #region Windows declarations
