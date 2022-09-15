@@ -11,10 +11,11 @@ Windows are visualized character by character using ASCII symbols. The project w
 ## Where it can be used?
 
   * systems with limited resources such as Raspberry Pi, virtual machines
-  * to create installers before the entire OS is deployed (Linux installer)
+  * dedicated devices such as cash registers
   * if you need 100% identical UI across different OSes
   * if you need a fast and responsive UI
-  * it can also be used from remote terminal where other UIs are unavailable
+  * for text based installers
+  * it can be used from remote terminals where other UIs are unavailable
   
 ## Controls
 The library provides controls that all inherit from the DosWindow class. So they are also called "windows". The following are provided:
