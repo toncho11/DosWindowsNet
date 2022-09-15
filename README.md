@@ -23,9 +23,9 @@ The library provides controls that all inherit from the DosWindow class. So they
   * message window
   * progress bar window 
   * login window
-  * list window (in progress)
+  * list window
 
-There is a support for 1 level windows overlapping. So one window over another window will visualise correctly. Closing the second window will restore the integrity of the first one. But there are limitations
+There is support for 1 level windows overlapping. So one window over another window will visualise correctly. Closing the top window will restore the integrity of the bottom one. But there are limitations.
 
 ## Applications
   * email.exe - an application that allows you to check your email from the Windows or Linux console. If you use Gmail and 2-Step-Verification then you need to use [Application Password](https://support.google.com/accounts/answer/185833?hl=en) instead of your main password.
