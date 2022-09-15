@@ -8,7 +8,7 @@ It is a .NET library for ASCII DOS windows. It also comes with an example eappli
 
 Windows are visualized character by character using ASCII symbols. The project works on Windows and Mac/Linux (with [Mono](https://www.mono-project.com)).
 
-## What it can be used?
+## Where it can be used?
 
   * systems with limited resources such as Raspberry Pi, virtual machines
   * to create installers before the entire OS is deployed (Linux installer)
