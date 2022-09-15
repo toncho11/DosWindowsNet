@@ -10,7 +10,7 @@ Windows are visualized character by character using ASCII symbols. The project w
 
 ## Where it can be used?
 
-  * systems with limited resources such as Raspberry Pi, virtual machines
+  * systems with limited resources
   * dedicated devices such as cash registers
   * if you need 100% identical UI across different OSes
   * if you need a fast and responsive UI
@@ -19,7 +19,7 @@ Windows are visualized character by character using ASCII symbols. The project w
   
 ## Controls
 The library provides controls that all inherit from the DosWindow class. So they are also called "windows". The following are provided:
-  * standard window
+  * standard window (for text display)
   * textbox window (for input)
   * message window
   * progress bar window 
@@ -29,7 +29,10 @@ The library provides controls that all inherit from the DosWindow class. So they
 There is support for 1 level windows overlapping. So one window over another window will visualise correctly. Closing the top window will restore the integrity of the bottom one. But there are limitations.
 
 ## Applications
-  * email.exe - an application that allows you to check your email from the Windows or Linux console. If you use Gmail and 2-Step-Verification then you need to use [Application Password](https://support.google.com/accounts/answer/185833?hl=en) instead of your main password.
+  * email.exe - an application that allows you to check your email from the Windows or Linux console. If you use Gmail and 2-Step-Verification then you need to use [Application Password](https://support.google.com/accounts/answer/185833?hl=en) instead of your main password
+    * you can either enter your login and server details on screen or use a config file
+    * F2 check for emails
+    * ESC asks if you would like to exit 
 
 ## Future work:
 Add more Windows/Controls
