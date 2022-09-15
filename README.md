@@ -2,7 +2,7 @@
 
 ## What it is?
 
-It is a .NET library for ASCII DOS windows. It also comes with an example eapplication. 
+It is a .NET library for ASCII DOS windows. It also comes with an example email eapplication. 
 
 ![Alt text](/screenshots/email2.png?raw=true "email.exe can check e-mail from gmail")
 
@@ -28,7 +28,7 @@ The library provides controls that all inherit from the DosWindow class. So they
 There is a support for 1 level windows overlapping. So one window over another window will visualise correctly. Closing the second window will restore the integrity of the first one. But there are limitations
 
 ## Applications
-  * Email.exe - an application that allows you to check your email from the Windows or Linux console. If you use Gmail and 2-Step-Verification then you need to use [Application Password](https://support.google.com/accounts/answer/185833?hl=en).
+  * email.exe - an application that allows you to check your email from the Windows or Linux console. If you use Gmail and 2-Step-Verification then you need to use [Application Password](https://support.google.com/accounts/answer/185833?hl=en) instead of your main password.
 
 ## Future work:
 Add more Windows/Controls
