@@ -20,7 +20,8 @@ The library provides controls that all inherit from the DosWindow class. So they
   * progress bar window 
   * login window
   * list window (in progress)
-There is a support for 1 level windows overlays. So one window over another window will visualise correctly. CLosing the second window will restore the integrity of the first one. But there is a limitation on how many windows can sit on top of each other.
+
+There is a support for 1 level windows overlapping. So one window over another window will visualise correctly. CLosing the second window will restore the integrity of the first one. But there is a limitation on how many windows can sit on top of each other.
 
 Programs:
   * provided: email.exe - a proof of concept app that allows you to check your gmail from the Windows or Linux console
