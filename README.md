@@ -1,6 +1,6 @@
 # DosWindowsNet
 
-## What it is?
+## What is it?
 
 It is a .NET library for ASCII DOS windows allowing for text-based interfaces. It also comes with an example email eapplication. 
 
