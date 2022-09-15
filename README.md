@@ -35,8 +35,9 @@ There is support for 1 level windows overlapping. So one window over another win
     * ESC asks if you would like to exit 
 
 ## Future work
-Add more Windows/Controls
-  * checkbox
+Windows/Controls:
+  * add checkbox
+  * improve textbox window with text auto wrap and add a scroll bar for text that does not fit
   
 Add more programs:
   * re-write of entire Midnight Commander or PCTools in .NET 
