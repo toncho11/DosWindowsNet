@@ -21,19 +21,20 @@ The library provides controls that all inherit from the DosWindow class. So they
   * login window
   * list window (in progress)
 
-There is a support for 1 level windows overlapping. So one window over another window will visualise correctly. CLosing the second window will restore the integrity of the first one. But there is a limitation on how many windows can sit on top of each other.
+There is a support for 1 level windows overlapping. So one window over another window will visualise correctly. Closing the second window will restore the integrity of the first one. But there is a limitation on how many windows can sit on top of each other.
 
 Programs:
   * provided: email.exe - a proof of concept app that allows you to check your gmail from the Windows or Linux console
-  * future: rewrite of the Linux's screen command with the split screen functionality
-  * future: chat client for WhatsApp (C# API exists)
-  * future: weather application with current temperature and forecast
-  * future: console pdf reader that uses .NET to convert the PDF to text
-  * future: re-write of entire Midnight Commander or PCTools in .NET 
 
-Things to add:
+Future work:
   * more Windows/Controls (checkbox for example)
-  * implement Windows overlay (several windows on top of each other)
-  * add shadow to DosWindow
+  
+Add more programs:
+  * rewrite of the Linux's screen command with the split screen functionality
+  * chat client for WhatsApp (C# API exists)
+  * weather application with current temperature and forecast
+  * console pdf reader that uses .NET to convert the PDF to text
+  * re-write of entire Midnight Commander or PCTools in .NET 
+  
 
 
