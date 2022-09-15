@@ -1,3 +1,5 @@
+# DosWindowsNet
+
 ## What it is?
 
 It is a .NET library for ASCII DOS windows. It also comes with an example eapplication. 
@@ -25,18 +27,20 @@ The library provides controls that all inherit from the DosWindow class. So they
 
 There is a support for 1 level windows overlapping. So one window over another window will visualise correctly. Closing the second window will restore the integrity of the first one. But there are limitations
 
-# Applications
+## Applications
   * Email.exe - an application that allows you to check your email from the Windows or Linux console. If you use Gmail and 2-Step-Verification then you need to use [Application Password](https://support.google.com/accounts/answer/185833?hl=en).
 
 ## Future work:
-  * more Windows/Controls (checkbox for example)
+Add more Windows/Controls
+  * checkbox
   
 Add more programs:
-  * rewrite of the Linux's screen command with the split screen functionality
-  * chat client for WhatsApp (C# API exists)
-  * weather application with current temperature and forecast
-  * console pdf reader that uses .NET to convert the PDF to text
   * re-write of entire Midnight Commander or PCTools in .NET 
+  * rewrite of the Linux's screen command with the split screen functionality
+  * chat client for WhatsApp (C# API exists) or IRC
+  * console pdf reader that uses .NET to convert the PDF to text
+  * weather application with current temperature and forecast
+  
   
 
 
