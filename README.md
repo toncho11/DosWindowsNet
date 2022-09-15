@@ -34,7 +34,7 @@ There is support for 1 level windows overlapping. So one window over another win
     * F2 check for emails
     * ESC asks if you would like to exit 
 
-## Future work:
+## Future work
 Add more Windows/Controls
   * checkbox
   
