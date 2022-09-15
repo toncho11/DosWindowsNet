@@ -24,7 +24,7 @@ The library provides controls that all inherit from the DosWindow class. So they
 There is a support for 1 level windows overlapping. So one window over another window will visualise correctly. Closing the second window will restore the integrity of the first one. But there is a limitation on how many windows can sit on top of each other.
 
 Programs:
-  * provided: email.exe - a proof of concept app that allows you to check your gmail from the Windows or Linux console
+  * Email.exe - an application that allows you to check your email from the Windows or Linux console. If you use Gmail and 2-Step-Verification then you need to use [Application Password](https://support.google.com/accounts/answer/185833?hl=en).
 
 Future work:
   * more Windows/Controls (checkbox for example)
