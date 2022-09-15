@@ -73,7 +73,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DosWindowNet\DosWindowNet.csproj">
+    <ProjectReference Include="..\..\DosWindowNet\DosWindowNet.csproj">
       <Project>{dcd00a4a-a79a-432d-9a2e-38c3a36f6ce4}</Project>
       <Name>DosWindowNet</Name>
     </ProjectReference>
