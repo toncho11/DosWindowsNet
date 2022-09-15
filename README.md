@@ -2,7 +2,7 @@
 
 ## What it is?
 
-It is a .NET library for ASCII DOS windows. It also comes with an example email eapplication. 
+It is a .NET library for ASCII DOS windows allowing for text-based interfaces. It also comes with an example email eapplication. 
 
 ![Alt text](/screenshots/email2.png?raw=true "email.exe can check e-mail from gmail")
 
