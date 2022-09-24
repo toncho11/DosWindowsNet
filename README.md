@@ -40,7 +40,8 @@ Windows/Controls:
   * improve textbox window with text auto wrap and add a scroll bar for text that does not fit
   
 Add more programs:
-  * re-write of entire Midnight Commander or PCTools in .NET 
+  * re-write of entire Midnight Commander or PCTools in .NET
+  * MP3 player
   * rewrite of the Linux's screen command with the split screen functionality
   * chat client for WhatsApp (C# API exists) or IRC
   * console pdf reader that uses .NET to convert the PDF to text
