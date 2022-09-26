@@ -25,7 +25,7 @@ namespace fm
 
             DosWindow win = new DosWindow(0, 34, 78, 4, "");
             win.Draw();
-            win.Text = "   Copy Move cOmp Find Rename Delete Ver view/Edit Attrib Wordp Print List    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            win.Text = "   Copy Move cOmp Find Rename Delete Ver view/Edit Attrib Wordp Print List    ";
 
             DosWindow win2 = new DosWindow(0, 31, 78, 3, "");
             win2.Draw();
