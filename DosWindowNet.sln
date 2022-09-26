@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DosWindowNet", "DosWindowNe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "email", "Applications\email\email.csproj", "{B05E91C1-BD70-46FE-A27D-E740108EC9C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fm", "Applications\fm\fm.csproj", "{B5677C4B-A26B-4715-8EF5-413035DE370C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B05E91C1-BD70-46FE-A27D-E740108EC9C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B05E91C1-BD70-46FE-A27D-E740108EC9C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B05E91C1-BD70-46FE-A27D-E740108EC9C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5677C4B-A26B-4715-8EF5-413035DE370C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5677C4B-A26B-4715-8EF5-413035DE370C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5677C4B-A26B-4715-8EF5-413035DE370C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5677C4B-A26B-4715-8EF5-413035DE370C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
