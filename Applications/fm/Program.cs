@@ -37,8 +37,15 @@ namespace fm
             string tt = "                              File Functions                                   ".Replace(" ", "\u2500");
             win5.Text = tt;
 
+            //path
+            DosWindow win6 = new DosWindow(0, 2, 80, 1, "");
+            win6.SetColors(ConsoleColor.Black, ConsoleColor.White);
+            win6.showBorder = false;
+            win6.Draw();
+            win6.Text = @"Path=C:\*.*";
+
             //top green line
-            DosWindow win3 = new DosWindow(0, 4, 80, 1, "");
+            DosWindow win3 = new DosWindow(0, 3, 80, 1, "");
             win3.SetColors(ConsoleColor.Green, ConsoleColor.White);
             win3.showBorder = false;
             win3.Draw();
