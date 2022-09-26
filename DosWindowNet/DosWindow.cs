@@ -18,7 +18,7 @@ namespace DosWindowNet
         protected string title;
 
         protected bool isVisible;
-        protected bool showBorder;
+        public bool showBorder;
         public bool SkipTabOrder;
         protected bool showCursor;
 

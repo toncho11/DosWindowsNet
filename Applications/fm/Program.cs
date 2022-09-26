@@ -23,13 +23,35 @@ namespace fm
                 Console.ReadKey();
             }
 
-            DosWindow win = new DosWindow(0, 34, 78, 4, "");
+            //top blue line
+            DosWindow win4 = new DosWindow(0, 0, 80, 1, "");
+            win4.SetColors(ConsoleColor.DarkBlue, ConsoleColor.White);
+            win4.showBorder = false;
+            win4.Draw();
+            win4.Text = "File Manager 1.0 " + DateTime.Today.ToShortDateString();
+
+            DosWindow win5 = new DosWindow(0, 1, 80, 1, "");
+            win5.SetColors(ConsoleColor.DarkBlue, ConsoleColor.White);
+            win5.showBorder = false;
+            win5.Draw();
+            string tt = "                              File Functions                                   ".Replace(" ", "\u2500");
+            win5.Text = tt;
+
+            //top green line
+            DosWindow win3 = new DosWindow(0, 4, 80, 1, "");
+            win3.SetColors(ConsoleColor.Green, ConsoleColor.White);
+            win3.showBorder = false;
+            win3.Draw();
+            win3.Text = "    Name     Ext     Size";
+
+            DosWindow win = new DosWindow(0, 21, 78, 4, "");
             win.Draw();
             win.Text = "   Copy Move cOmp Find Rename Delete Ver view/Edit Attrib Wordp Print List    ";
 
-            DosWindow win2 = new DosWindow(0, 31, 78, 3, "");
+            DosWindow win2 = new DosWindow(0, 18, 78, 3, "");
             win2.Draw();
             win2.Text = "";
+
             Console.ReadLine();
         }
     }
