@@ -42,9 +42,9 @@ namespace email
         static ConsoleColor oldBgColor;
         static ConsoleColor oldFgColor;
 
-        static bool shouldExit = false;
+        static bool exitRequested = false;
 
-        public static void Initialize()
+        public static void BuildUI()
         {
             Dekstop.Draw();
 
@@ -81,7 +81,7 @@ namespace email
             winEmailBody.Text = body.Substring(0,80); //TODO: remove the restrictions of 80 characters after adding word wraping and scrolling !
         }
 
-        public static void StartLoop()
+        public static void Loop()
         {
             while (true)
             {
@@ -106,7 +106,7 @@ namespace email
                         winExit.KeyPressed += WinExit_KeyPressed;
                         winExit.Draw();
 
-                        if (shouldExit)
+                        if (exitRequested)
                             break;
                     }
                     else
@@ -136,7 +136,7 @@ namespace email
         {
             if (key.Key == ConsoleKey.Y)
             {
-                shouldExit = true;
+                exitRequested = true;
             }
         }
 
@@ -159,7 +159,7 @@ namespace email
             oldBgColor = Console.BackgroundColor;
             oldFgColor = Console.ForegroundColor;
 
-            Initialize();
+            BuildUI();
 
             //string[] strs = { "aaa", "bbb", "ccc", "dd", "eee" };
 
@@ -175,7 +175,7 @@ namespace email
 
             Window.GetCurrentWindow().SetToFocus();
 
-            StartLoop();
+            Loop();
 
             Exit();
 

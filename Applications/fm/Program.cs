@@ -13,6 +13,30 @@ namespace fm
 
     class Program
     {
+        static DosWindowMessage winAbout;
+        static DosWindowExit winExit;
+
+        static ConsoleColor oldBgColor;
+        static ConsoleColor oldFgColor;
+
+        static bool exitRequested = false;
+
+        class DosWindowExit : DosWindowDialog
+        {
+            public DosWindowExit(int posx, int posy, int width, int height, string text, string title) : base(posx, posy, width, height, text, title)
+            {
+            }
+
+            public override void DrawText()
+            {
+                ScrBuffer.SetCursorPosition(29, 23);
+                ScrBuffer.Write("Are you SURE you want to");
+
+                ScrBuffer.SetCursorPosition(29, 24);
+                ScrBuffer.Write("exit File Manager? (Y/N)");
+            }
+        }
+
         static void Main(string[] args)
         {
             Console.SetWindowSize(80, 25);
@@ -23,6 +47,15 @@ namespace fm
                 Console.ReadKey();
             }
 
+            BuildUI();
+
+            Loop();
+
+            Exit();
+        }
+
+        public static void BuildUI()
+        {
             //top blue line
             DosWindow win4 = new DosWindow(0, 0, 80, 1, "");
             win4.SetColors(ConsoleColor.DarkBlue, ConsoleColor.White);
@@ -58,8 +91,67 @@ namespace fm
             DosWindow win2 = new DosWindow(0, 18, 78, 3, "");
             win2.Draw();
             win2.Text = "";
+        }
 
-            Console.ReadLine();
+        public static void Loop()
+        {
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+                    //First process keyboard events for the local window
+                    bool isProcessedByWindow = Window.GetCurrentWindow().ProcessKeyboardEvent(keyInfo);
+
+                    if (isProcessedByWindow) continue;
+
+                    if (keyInfo.Key == ConsoleKey.Escape)
+                    {
+                        winExit = new DosWindowExit(20, 22, 40,3,"", "");
+                        winExit.KeyPressed += WinExit_KeyPressed;
+                        winExit.Draw();
+
+                        if (exitRequested)
+                            break;
+                    }
+                    else
+                    if (keyInfo.Key == ConsoleKey.Tab || keyInfo.Key == ConsoleKey.DownArrow)
+                    {
+                        Window.GiveFocusToNextWindow();
+                    }
+                    else
+                    if (keyInfo.Key == ConsoleKey.F3)
+                    {
+                        winAbout = new DosWindowMessage("File Manager by Anton Andreev v1.0", "About");
+                        winAbout.SetColors(ConsoleColor.Green, ConsoleColor.White);
+                        winAbout.Draw();
+                    }
+
+                    //Refocus
+                    Window.GetCurrentWindow().SetToFocus();
+                }
+                else
+                {
+                    System.Threading.Thread.Sleep(30);
+                }
+            }
+        }
+
+        public static void Exit()
+        {
+            Console.BackgroundColor = oldBgColor;
+            Console.ForegroundColor = oldFgColor;
+            Console.Clear();
+            Console.WriteLine("Bye.");
+        }
+
+        private static void WinExit_KeyPressed(ConsoleKeyInfo key)
+        {
+            if (key.Key == ConsoleKey.Y)
+            {
+                exitRequested = true;
+            }
         }
     }
 }
